@@ -1,3 +1,6 @@
 spring:
   application:
     name: config-main
+
+app.config:
+  message: this config file is from private config main
