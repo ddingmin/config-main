@@ -34,13 +34,9 @@ kotlin {
 }
 
 tasks.register<Copy>("initSecretConfig") {
-    from("../src/main/resources/config")
-    include("*.yaml")
-    into("src/main/resources")
-}
-
-tasks.named("processResources") {
-    dependsOn("initSecretConfig")
+    from("../src/main/resources/config") // 서브 모듈 디렉토리 경로
+    include("*.yaml") // 서브 모듈에서 복사할 yaml 파일
+    into("src/main/resources") // 복사할 디렉토리로 yaml 파일 복사
 }
 
 tasks.withType<Test> {
