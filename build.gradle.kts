@@ -33,6 +33,20 @@ kotlin {
     }
 }
 
+tasks.register<Copy>("initSecretConfig") {
+    from("../src/main/resources/config")
+    include("*.yaml")
+    into("src/main/resources")
+
+    doLast {
+        println("Copy secret config files")
+    }
+}
+
+tasks.named("processResources") {
+    dependsOn("initSecretConfig")
+}
+
 tasks.withType<Test> {
     useJUnitPlatform()
 }
