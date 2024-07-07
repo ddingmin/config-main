@@ -9,8 +9,8 @@ class ConfigController {
 
     @GetMapping("")
     fun showConfig(
-        @Value("\${app.config.message}") appName: String,
+        @Value("\${app.config.message}") text: String,
     ): String {
-        return appName
+        return text
     }
 }
